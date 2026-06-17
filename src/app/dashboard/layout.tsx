@@ -1,13 +1,25 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
 import { LayoutDashboard, Users, LineChart, Settings, LogOut, CreditCard, HelpCircle, FileText, Menu, X } from "lucide-react";
+import { auth } from "@/lib/firebase";
+import { signOut } from "firebase/auth";
 
 export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
+  const router = useRouter();
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+
+  const handleLogout = async () => {
+    try {
+      await signOut(auth);
+      router.push("/");
+    } catch (error) {
+      console.error("Error signing out", error);
+    }
+  };
 
   const toggleSidebar = () => {
     setIsSidebarOpen(!isSidebarOpen);
@@ -27,13 +39,13 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
     <div className="flex h-screen bg-background">
       
       {/* Mobile Header (Visible only on md:hidden) */}
-      <div className="md:hidden fixed top-0 inset-x-0 h-16 border-b border-white/10 bg-[#050505] z-40 flex items-center justify-between px-6">
-        <Link href="/">
-          <span className="font-logo font-bold text-lg tracking-[0.2em] text-white uppercase">ROXTEN</span>
-        </Link>
+      <div className="md:hidden fixed top-0 inset-x-0 h-16 border-b border-white/10 bg-[#050505] z-40 flex items-center justify-between px-4">
         <button onClick={toggleSidebar} className="text-white p-2">
           {isSidebarOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
+        <Link href="/dashboard">
+          <span className="font-logo font-bold text-lg tracking-[0.2em] text-white uppercase">ROXTEN</span>
+        </Link>
       </div>
 
       {/* Sidebar Overlay for Mobile */}
@@ -51,7 +63,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
         }`}
       >
         <div className="p-6">
-          <Link href="/">
+          <Link href="/dashboard">
             <span className="font-logo font-bold text-xl tracking-[0.2em] text-white uppercase">ROXTEN</span>
           </Link>
           <div className="mt-3 text-[10px] font-mono text-white/60 tracking-[0.3em] uppercase">PARTNER DASHBOARD</div>
@@ -83,7 +95,7 @@ export default function DashboardLayout({ children }: { children: React.ReactNod
             <div className="text-sm font-medium">John Doe</div>
             <div className="text-xs text-white/40 truncate">john@acme.com</div>
           </div>
-          <button className="flex items-center gap-3 px-4 py-3 w-full rounded-xl hover:bg-white/5 text-white/80 hover:text-white transition-colors text-left">
+          <button onClick={handleLogout} className="flex items-center gap-3 px-4 py-3 w-full rounded-xl hover:bg-white/5 text-white/80 hover:text-white transition-colors text-left">
             <LogOut size={20} />
             <span className="font-medium">Log Out</span>
           </button>

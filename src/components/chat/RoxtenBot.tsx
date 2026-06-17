@@ -34,7 +34,7 @@ export function RoxtenBot({ isOpen, onClose }: RoxtenBotProps) {
     const input = userInput.toLowerCase();
     
     if (input.includes('commission') || input.includes('percentage') || input.includes('how much')) {
-      return "You earn a massive 15% recurring commission on the lifetime value of every client you refer to us.";
+      return "Our gamified tier system lets you earn between 10% and 20% recurring commission based on how many clients you refer.";
     }
     if (input.includes('payout') || input.includes('paid') || input.includes('when')) {
       return "Referral amounts are paid out after the client successfully completes their payment to Roxten Studios. Make sure your Bank Account or UPI ID is saved in the Payouts section.";

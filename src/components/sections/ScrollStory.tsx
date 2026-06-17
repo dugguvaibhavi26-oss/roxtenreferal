@@ -59,7 +59,7 @@ export const ScrollStory = () => {
     },
     {
       title: "YOU EARN",
-      desc: "You receive a 15% lifetime commission on every payment. Automatically.",
+      desc: "You receive up to a 20% lifetime commission on every payment based on your partner tier.",
       icon: <IndianRupee className="w-16 h-16 text-emerald-400/80" />
     }
   ];

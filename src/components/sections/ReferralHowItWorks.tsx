@@ -31,7 +31,7 @@ export const ReferralHowItWorks = () => {
     {
       step: "04",
       title: "You Get Paid",
-      description: "Earn a 15% commission on the lifetime value of the client. Track everything in your dashboard."
+      description: "Earn up to a 20% commission on the lifetime value of the client. Unlock higher tiers as you refer more."
     }
   ];
 
@@ -39,7 +39,7 @@ export const ReferralHowItWorks = () => {
     <section className="py-32 relative overflow-hidden" id="how-it-works" ref={containerRef}>
       <div className="container mx-auto px-6 max-w-5xl">
         <div className="text-center mb-24">
-          <h2 className="text-4xl md:text-6xl font-heading font-black mb-6 uppercase tracking-tight text-white">How It Works</h2>
+          <h2 className="text-3xl md:text-5xl font-heading font-black mb-4 uppercase tracking-tight text-white">How It Works</h2>
           <p className="text-lg text-white/50 tracking-widest uppercase font-mono text-sm">Four simple steps to recurring revenue.</p>
         </div>
 
@@ -77,11 +77,8 @@ export const ReferralHowItWorks = () => {
                       {/* Subtle hover gradient */}
                       <div className="absolute inset-0 bg-gradient-to-br from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                       
-                      <div className="text-6xl font-mono font-black text-white/5 absolute -top-4 -right-4 group-hover:text-white/10 transition-colors pointer-events-none">
-                        {item.step}
-                      </div>
-                      <h3 className="text-2xl font-heading font-bold mb-4 text-white relative z-10">{item.title}</h3>
-                      <p className="text-white/60 leading-relaxed relative z-10">{item.description}</p>
+                      <h3 className="text-xl font-heading font-bold mb-3 text-white relative z-10">{item.title}</h3>
+                      <p className="text-white/60 leading-relaxed relative z-10 text-sm">{item.description}</p>
                     </div>
                   </motion.div>
                 </div>

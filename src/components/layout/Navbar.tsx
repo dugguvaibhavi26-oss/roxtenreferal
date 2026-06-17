@@ -4,7 +4,7 @@ import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, LogIn } from "lucide-react";
 
 export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,7 +30,26 @@ export default function Navbar() {
   return (
     <header className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${scrolled ? "bg-black/60 backdrop-blur-xl border-b border-white/10 py-4" : "bg-transparent py-6"}`}>
       <div className="container mx-auto px-6 flex items-center justify-between max-w-7xl">
-        <Link href="/" className="flex items-center gap-2 group z-50">
+        
+        {/* Mobile Header */}
+        <div className="flex md:hidden items-center justify-between w-full z-50">
+          <button className="p-2 text-white -ml-2" onClick={toggleMobileMenu}>
+            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+          
+          <div className="flex items-center gap-4">
+            <Link href="/" className="flex items-center group">
+              <span className="font-logo font-bold text-lg tracking-[0.2em] text-white uppercase transition-transform group-hover:scale-105">ROXTEN</span>
+            </Link>
+            
+            <Link href="/login" className="p-2 text-white -mr-2 flex items-center">
+              <LogIn size={24} />
+            </Link>
+          </div>
+        </div>
+
+        {/* Desktop Header */}
+        <Link href="/" className="hidden md:flex items-center gap-2 group z-50">
           <span className="font-logo font-bold text-xl tracking-[0.2em] text-white uppercase transition-transform group-hover:scale-105">ROXTEN</span>
         </Link>
 
@@ -43,7 +62,8 @@ export default function Navbar() {
         {/* Desktop Buttons */}
         <div className="hidden md:flex items-center gap-4">
           <Link href="/login">
-            <Button variant="ghost" className="text-white hover:text-white hover:bg-white/5">
+            <Button variant="ghost" className="text-white hover:text-white hover:bg-white/5 flex items-center gap-2">
+              <LogIn className="w-4 h-4" />
               Login
             </Button>
           </Link>
@@ -53,11 +73,6 @@ export default function Navbar() {
             </Button>
           </Link>
         </div>
-
-        {/* Mobile Hamburger Button */}
-        <button className="md:hidden z-50 p-2 text-white" onClick={toggleMobileMenu}>
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
       </div>
 
       {/* Mobile Navigation Menu */}

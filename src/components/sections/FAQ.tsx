@@ -4,8 +4,8 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 export const FAQ = () => {
   const faqs = [
     {
-      q: "How much commission do I earn?",
-      a: "You earn a massive 15% recurring commission on the lifetime value of every client you refer to us."
+      q: "How much commission do I make?",
+      a: "Our tiered gamification system starts you at a 10% commission. Unlock the Gold Badge (4+ referrals) for 15%, and the Platinum Badge (10+ referrals) to earn a massive 20% lifetime commission on every client."
     },
     {
       q: "When do I get paid?",

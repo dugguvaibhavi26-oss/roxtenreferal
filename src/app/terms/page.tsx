@@ -28,7 +28,7 @@ export default function TermsConditionsPage() {
         <section>
           <h2 className="text-2xl font-bold text-white mb-4">3. Referral Validity & Commissions</h2>
           <p>
-            A referral is only considered valid if it results in a signed contract and a successfully processed client payment. Partners earn a 15% commission on the project value. Commissions are strictly disbursed <strong>after</strong> Roxten Studios receives the corresponding payment from the client.
+            A referral is only considered valid if it results in a signed contract and a successfully processed client payment. Partners earn a tiered commission (10% to 20%) based on their referral volume. Commissions are strictly disbursed <strong>after</strong> Roxten Studios receives the corresponding payment from the client.
           </p>
         </section>
 

@@ -30,23 +30,23 @@ export default function Referrals() {
 
       <div className="glass-card border-white/10 overflow-hidden">
         <div className="overflow-x-auto">
-          <table className="w-full text-left border-collapse">
+          <table className="w-full text-left border-collapse whitespace-nowrap">
             <thead>
               <tr className="border-b border-white/10 bg-white/[0.02]">
-                <th className="p-5 font-medium text-muted-foreground text-sm">Client Name</th>
-                <th className="p-5 font-medium text-muted-foreground text-sm">Date Submitted</th>
-                <th className="p-5 font-medium text-muted-foreground text-sm">Status</th>
-                <th className="p-5 font-medium text-muted-foreground text-sm">Project Value</th>
-                <th className="p-5 font-medium text-muted-foreground text-sm">Your Commission</th>
+                <th className="p-3 md:p-4 font-medium text-muted-foreground text-xs">Client Name</th>
+                <th className="p-3 md:p-4 font-medium text-muted-foreground text-xs">Date</th>
+                <th className="p-3 md:p-4 font-medium text-muted-foreground text-xs">Status</th>
+                <th className="p-3 md:p-4 font-medium text-muted-foreground text-xs">Value</th>
+                <th className="p-3 md:p-4 font-medium text-muted-foreground text-xs">Commission</th>
               </tr>
             </thead>
             <tbody>
               {referrals.map((ref) => (
-                <tr key={ref.id} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors">
-                  <td className="p-5 font-medium text-white">{ref.client}</td>
-                  <td className="p-5 text-muted-foreground text-sm">{ref.date}</td>
-                  <td className="p-5">
-                    <span className={`inline-block px-3 py-1 rounded-full text-xs font-mono tracking-wide border
+                <tr key={ref.id} className="border-b border-white/5 hover:bg-white/[0.02] transition-colors text-xs md:text-sm">
+                  <td className="p-3 md:p-4 font-bold text-white">{ref.client}</td>
+                  <td className="p-3 md:p-4 text-white/50">{ref.date}</td>
+                  <td className="p-3 md:p-4">
+                    <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-mono tracking-wide border
                       ${ref.status === 'payment finished' ? 'bg-white/10 text-white font-bold border-white/40' : 
                         ref.status === 'deal canceled' ? 'bg-red-500/10 text-red-500 border-red-500/20' : 
                         ref.status === 'deal processing' || ref.status === 'building' || ref.status === 'processing payment' ? 'bg-white/5 text-white/60 border-white/10' :
@@ -54,8 +54,8 @@ export default function Referrals() {
                       {ref.status}
                     </span>
                   </td>
-                  <td className="p-5 text-white/90">{ref.value}</td>
-                  <td className="p-5 text-white font-medium">{ref.commission}</td>
+                  <td className="p-3 md:p-4 text-white/90">{ref.value}</td>
+                  <td className="p-3 md:p-4 text-emerald-400 font-bold">{ref.commission}</td>
                 </tr>
               ))}
             </tbody>

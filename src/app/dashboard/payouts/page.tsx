@@ -88,7 +88,7 @@ export default function PayoutsPage() {
   return (
     <div className="p-8 md:p-12 max-w-5xl mx-auto space-y-12">
       <div>
-        <h1 className="text-3xl font-heading font-black tracking-[-0.04em] uppercase mb-2">Payout Details</h1>
+        <h1 className="text-2xl font-heading font-black tracking-[-0.04em] uppercase mb-2">Payout Details</h1>
         <p className="text-white/60">Manage your payment methods for receiving referral commissions.</p>
       </div>
 
@@ -105,7 +105,7 @@ export default function PayoutsPage() {
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-3">
             <Building2 className="text-white/80" size={24} />
-            <h2 className="text-xl font-heading font-bold">Bank Accounts</h2>
+            <h2 className="text-lg font-heading font-bold">Bank Accounts</h2>
           </div>
           {!isAddingBank && !editingBankId && (
             <button onClick={() => setIsAddingBank(true)} className="px-4 py-2 text-sm rounded-full border border-white/20 hover:bg-white/5 transition-colors flex items-center gap-2">
@@ -201,7 +201,7 @@ export default function PayoutsPage() {
         <div className="flex justify-between items-center mb-6">
           <div className="flex items-center gap-3">
             <Smartphone className="text-white/80" size={24} />
-            <h2 className="text-xl font-heading font-bold">UPI IDs</h2>
+            <h2 className="text-lg font-heading font-bold">UPI IDs</h2>
           </div>
           {!isAddingUpi && !editingUpiId && (
             <button onClick={() => setIsAddingUpi(true)} className="px-4 py-2 text-sm rounded-full border border-white/20 hover:bg-white/5 transition-colors flex items-center gap-2">

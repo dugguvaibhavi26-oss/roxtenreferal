@@ -4,12 +4,27 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { AuroraBackground } from "@/components/animations/AuroraBackground";
+import { useEffect } from "react";
 
 export default function Register() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const router = useRouter();
+
+  useEffect(() => {
+    // Basic redirect if logged in
+    const checkAuth = async () => {
+      const { auth } = await import('@/lib/firebase');
+      const { onAuthStateChanged } = await import('firebase/auth');
+      onAuthStateChanged(auth, (user) => {
+        if (user) {
+          router.replace("/dashboard");
+        }
+      });
+    };
+    checkAuth();
+  }, [router]);
 
   const handleRegister = (e: React.FormEvent) => {
     e.preventDefault();

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans, Geist_Mono, Michroma } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
 import { ReferralTracker } from "@/components/ReferralTracker";
 import { Suspense } from "react";
 import { ThemeProvider } from "@/components/ThemeProvider";
@@ -42,10 +41,10 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${plusJakartaSans.variable} ${geistMono.variable} ${michroma.variable} h-full antialiased`}
+      className={`${inter.variable} ${plusJakartaSans.variable} ${geistMono.variable} ${michroma.variable} antialiased`}
       suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
+      <body className="flex flex-col bg-background text-foreground selection:bg-primary selection:text-primary-foreground min-h-screen">
         <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark" disableTransitionOnChange>
           <SmoothScrollProvider>
             <Suspense fallback={null}>
@@ -53,7 +52,6 @@ export default function RootLayout({
             </Suspense>
             <Navbar />
             <main className="flex-1">{children}</main>
-            <Footer />
           </SmoothScrollProvider>
         </ThemeProvider>
       </body>

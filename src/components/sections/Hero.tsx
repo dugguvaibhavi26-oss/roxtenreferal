@@ -62,7 +62,7 @@ export const Hero = () => {
               <span className="text-sm font-medium tracking-wide text-white">The Roxten Referral Program</span>
             </div>
 
-            <h1 className="text-5xl sm:text-6xl md:text-8xl lg:text-9xl font-heading font-black tracking-tighter text-white leading-[1.1] text-center flex flex-col gap-2">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-black tracking-tighter text-white leading-[1.1] text-center flex flex-col gap-2">
               <motion.div initial={{ opacity: 0, y: 50 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 1, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}>
                 <MagneticWord>CONNECT</MagneticWord>
               </motion.div>
@@ -109,13 +109,13 @@ export const Hero = () => {
         <div className="container mx-auto px-2 md:px-6">
           <div className="flex justify-between items-stretch gap-2 md:gap-12 max-w-5xl mx-auto">
             {[
-              { label: "Commission", value: "15%" },
+              { label: "Commission", value: "Up to 20%" },
               { label: "Earn Up To", value: "₹50K+" },
               { label: "Payouts", value: "Monthly" }
             ].map((stat, i) => (
               <div key={i} className="flex-1 flex flex-col items-center justify-center py-4 px-1 md:p-8 glass-card border-white/5 hover:border-white/20 transition-all duration-500 hover:-translate-y-1 md:hover:-translate-y-2 group relative overflow-hidden rounded-lg md:rounded-2xl text-center">
                 <div className="absolute inset-0 bg-gradient-to-t from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-                <span className="text-xl sm:text-3xl md:text-6xl font-heading font-black tracking-tighter text-white mb-2 md:mb-4 relative z-10">{stat.value}</span>
+                <span className="text-lg sm:text-2xl md:text-5xl font-heading font-black tracking-tighter text-white mb-2 md:mb-4 relative z-10">{stat.value}</span>
                 <span className="text-[7px] sm:text-[9px] md:text-xs tracking-[0.1em] md:tracking-[0.4em] font-mono uppercase text-white/40 relative z-10">{stat.label}</span>
               </div>
             ))}
