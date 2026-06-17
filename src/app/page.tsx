@@ -1,5 +1,6 @@
 import { Hero } from "@/components/sections/Hero";
 import { ReferralHowItWorks } from "@/components/sections/ReferralHowItWorks";
+import { ReferralEngine } from "@/components/sections/ReferralEngine";
 import { FAQ } from "@/components/sections/FAQ";
 
 export default function Home() {
@@ -7,6 +8,7 @@ export default function Home() {
     <>
       <Hero />
       <ReferralHowItWorks />
+      <ReferralEngine />
       <FAQ />
     </>
   );

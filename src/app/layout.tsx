@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import { ReferralTracker } from "@/components/ReferralTracker";
 import { Suspense } from "react";
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { SmoothScrollProvider } from "@/components/providers/SmoothScrollProvider";
 
 const inter = Inter({
   variable: "--font-sans",
@@ -46,12 +47,14 @@ export default function RootLayout({
     >
       <body className="min-h-full flex flex-col bg-background text-foreground selection:bg-primary selection:text-primary-foreground">
         <ThemeProvider attribute="class" defaultTheme="dark" forcedTheme="dark" disableTransitionOnChange>
-          <Suspense fallback={null}>
-            <ReferralTracker />
-          </Suspense>
-          <Navbar />
-          <main className="flex-1">{children}</main>
-          <Footer />
+          <SmoothScrollProvider>
+            <Suspense fallback={null}>
+              <ReferralTracker />
+            </Suspense>
+            <Navbar />
+            <main className="flex-1">{children}</main>
+            <Footer />
+          </SmoothScrollProvider>
         </ThemeProvider>
       </body>
     </html>
